@@ -3,3 +3,7 @@ module.exports = {
         ? '/f2e-2019-1/'
         : '/'
 }
+
+module.exports = {
+    publicPath: '/f2e-2019-1/'
+}
