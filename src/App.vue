@@ -1,47 +1,51 @@
 <template>
-    <div id="app" class="main__background">
-        <div class="content">
-            <div class="mission__input">
-                <i class="text--default">add a new mission…</i>
-                <i class="material-icons add-icon">add</i>
-            </div>
-            <div class="current-item">
-                <div class="current-item__ring"></div>
-                <div class="current-item__text">the First thing to do today</div>
-            </div>
-            <div class="countdown">25:00</div>
-            <div class="clock">
-                <div class="clock__center"></div>
-                <div class="clock__border"></div>
-                <i class="material-icons play-icon">play_circle_filled_white</i>
-                <i class="material-icons stop-icon">stop</i>
-            </div>
-            <div class="to-do-items">
-                <div class="to-do-item">
-                    <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                    <div class="to-do-item__text">the second thing to do today</div>
-                    <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+    <div id="app" class="main">
+        <div class="main__left">
+            <div class="content">
+                <div class="mission__input">
+                    <i class="text--default">add a new mission…</i>
+                    <i class="material-icons add-icon">add</i>
                 </div>
-                <div class="to-do-item">
-                    <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                    <div class="to-do-item__text">the third thing to do today</div>
-                    <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+                <div class="current-item">
+                    <div class="current-item__ring"></div>
+                    <div class="current-item__text">the First thing to do today</div>
                 </div>
-                <div class="to-do-item">
-                    <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                    <div class="to-do-item__text">the forth thing to do today</div>
-                    <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
-                </div>
-                <div class="to-do-item--more">
-                    MORE
+                <div class="countdown">25:00</div>
+                <div class="todo-items">
+                    <div class="todo-item">
+                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
+                        <div class="todo-item__text">the second thing to do today</div>
+                        <i class="material-icons todo-item__play-icon">play_circle_outline</i>
+                    </div>
+                    <div class="todo-item">
+                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
+                        <div class="todo-item__text">the third thing to do today</div>
+                        <i class="material-icons todo-item__play-icon">play_circle_outline</i>
+                    </div>
+                    <div class="todo-item">
+                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
+                        <div class="todo-item__text">the forth thing to do today</div>
+                        <i class="material-icons todo-item__play-icon">play_circle_outline</i>
+                    </div>
+                    <div class="todo-item--more">
+                        MORE
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="navbar">
-            <i class="material-icons list-icon">list</i>
-            <i class="material-icons assignment-icon">assessment</i>
-            <i class="material-icons library_music-icon">library_music</i>
-            <div class="pomodoro">POMODORO</div>
+        <div class="clock">
+            <div class="clock__center"></div>
+            <div class="clock__border"></div>
+            <i class="material-icons play-icon">play_circle_filled_white</i>
+            <i class="material-icons stop-icon">stop</i>
+        </div>
+        <div class="main__right">
+            <div class="navbar">
+                <i class="material-icons list-icon">list</i>
+                <i class="material-icons assignment-icon">assessment</i>
+                <i class="material-icons library_music-icon">library_music</i>
+                <div class="pomodoro">POMODORO</div>
+            </div>
         </div>
     </div>
 </template>
@@ -55,28 +59,37 @@
 
 <style>
 
-    html, body {
-        margin: 0;
+    html {
         width: 1280px;
         height: 800px;
-        /*overflow: hidden;*/
     }
 
-    .main__background {
+    body {
+        width: 100%;
         height: 100%;
-        background-color: #FFEDF7;
+        margin: 0;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+
         display: flex;
         justify-content: flex-start;
+
+        position: relative;
+        overflow-x: hidden;
     }
 
-    .content {
+    .main__left {
         width: 65%;
         height: 100%;
+        background-color: #FFEDF7;
+
         position: relative;
     }
 
-    .navbar {
-        /*float: right;*/
+    .main__right {
         width: 35%;
         height: 100%;
         background-color: #003164;
@@ -84,13 +97,24 @@
         position: relative;
     }
 
-    .clock {
-        width: 540px;
-        height: 540px;
-
+    .content {
+        width: calc(1280px*0.65);
+        height: 100%;
         position: absolute;
-        top: 130px;
-        right: -270px;
+        right: 0;
+    }
+
+    .navbar {
+        width: calc(1280px*0.35);
+        height: 100%;
+        position: absolute;
+        left: 0;
+    }
+
+    .clock {
+        position: absolute;
+        top: 50%;
+        left: 65%;
     }
 
     .clock__center {
@@ -182,7 +206,7 @@
         color: #003164;
     }
 
-    .to-do-item__play-icon {
+    .todo-item__play-icon {
         font-size: 24px;
         color: #003164;
         width: 24px;
@@ -190,7 +214,7 @@
     }
 
     .pomodoro {
-        font-family: Futura;
+        font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 24px;
         color: #FFFFFF;
@@ -199,8 +223,8 @@
         transform-origin: 100% 0;
 
         position: absolute;
-        top: 752px;
-        right: 85px;
+        /*top: 752px;*/
+        /*right: 85px;*/
 
     }
 
@@ -269,7 +293,7 @@
         border-radius: 50%;
     }
 
-    .to-do-items {
+    .todo-items {
         position: absolute;
         left: 85px;
         top: 610px;
@@ -278,20 +302,21 @@
         flex-direction: column;
     }
 
-    .to-do-item {
+    .todo-item {
         margin-top: 9px;
         padding-bottom: 8px;
         box-sizing: border-box;
         display: flex;
+        align-items: center;
         width: 445px;
         border-bottom: 1px solid rgba(0, 49, 100, 0.2);
     }
 
-    .to-do-item:nth-of-type(1) {
+    .todo-item:nth-of-type(1) {
         margin-top: 0;
     }
 
-    .to-do-item__text {
+    .todo-item__text {
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 16px;
@@ -300,7 +325,7 @@
         text-transform: uppercase;
     }
 
-    .to-do-item--more {
+    .todo-item--more {
         margin-top: 9px;
         margin-left: auto;
 
