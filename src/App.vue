@@ -1,47 +1,51 @@
 <template>
-    <div id="app" class="main__background">
-        <div class="content">
-            <div class="mission__input">
-                <i class="text--default">add a new mission…</i>
-                <i class="material-icons add-icon">add</i>
-            </div>
-            <div class="current-item">
-                <div class="current-item__ring"></div>
-                <div class="current-item__text">the First thing to do today</div>
-            </div>
-            <div class="countdown">25:00</div>
-            <div class="clock">
-                <div class="clock__center"></div>
-                <div class="clock__border"></div>
-                <i class="material-icons play-icon">play_circle_filled_white</i>
-                <i class="material-icons stop-icon">stop</i>
-            </div>
-            <div class="to-do-items">
-                <div class="to-do-item">
-                    <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                    <div class="to-do-item__text">the second thing to do today</div>
-                    <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+    <div id="app" class="main">
+        <div class="main__left">
+            <div class="content">
+                <div class="mission__input">
+                    <i class="text--default">add a new mission…</i>
+                    <i class="material-icons add-icon">add</i>
                 </div>
-                <div class="to-do-item">
-                    <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                    <div class="to-do-item__text">the third thing to do today</div>
-                    <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+                <div class="current-item">
+                    <div class="current-item__ring"></div>
+                    <div class="current-item__text">the First thing to do today</div>
                 </div>
-                <div class="to-do-item">
-                    <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                    <div class="to-do-item__text">the forth thing to do today</div>
-                    <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+                <div class="countdown">25:00</div>
+                <div class="clock">
+                    <div class="clock__center"></div>
+                    <div class="clock__border"></div>
+                    <i class="material-icons play-icon">play_circle_filled_white</i>
+                    <i class="material-icons stop-icon">stop</i>
                 </div>
-                <div class="to-do-item--more">
-                    MORE
+                <div class="to-do-items">
+                    <div class="to-do-item">
+                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
+                        <div class="to-do-item__text">the second thing to do today</div>
+                        <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+                    </div>
+                    <div class="to-do-item">
+                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
+                        <div class="to-do-item__text">the third thing to do today</div>
+                        <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+                    </div>
+                    <div class="to-do-item">
+                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
+                        <div class="to-do-item__text">the forth thing to do today</div>
+                        <i class="material-icons to-do-item__play-icon">play_circle_outline</i>
+                    </div>
+                    <div class="to-do-item--more">
+                        MORE
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="navbar">
-            <i class="material-icons list-icon">list</i>
-            <i class="material-icons assignment-icon">assessment</i>
-            <i class="material-icons library_music-icon">library_music</i>
-            <div class="pomodoro">POMODORO</div>
+        <div class="main__right">
+            <div class="navbar">
+                <i class="material-icons list-icon">list</i>
+                <i class="material-icons assignment-icon">assessment</i>
+                <i class="material-icons library_music-icon">library_music</i>
+                <div class="pomodoro">POMODORO</div>
+            </div>
         </div>
     </div>
 </template>
@@ -57,31 +61,46 @@
 
     html, body {
         margin: 0;
-        width: 1280px;
-        height: 800px;
-        /*overflow: hidden;*/
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 
-    .main__background {
+    .main {
+        width: 100%;
         height: 100%;
-        background-color: #FFEDF7;
         display: flex;
         justify-content: flex-start;
     }
 
-    .content {
+    .main__left {
         width: 65%;
         height: 100%;
+        background-color: #FFEDF7;
+
         position: relative;
     }
 
-    .navbar {
-        /*float: right;*/
+    .main__right {
         width: 35%;
         height: 100%;
         background-color: #003164;
 
         position: relative;
+    }
+
+    .content {
+        width: calc(1280px*0.65);
+        height: 100%;
+        position: absolute;
+        right: 0;
+    }
+
+    .navbar {
+        width: calc(1280px*0.35);
+        height: 100%;
+        position: absolute;
+        left: 0;
     }
 
     .clock {
@@ -190,7 +209,7 @@
     }
 
     .pomodoro {
-        font-family: Futura;
+        font-family: 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 24px;
         color: #FFFFFF;
@@ -283,6 +302,7 @@
         padding-bottom: 8px;
         box-sizing: border-box;
         display: flex;
+        align-items: center;
         width: 445px;
         border-bottom: 1px solid rgba(0, 49, 100, 0.2);
     }
