@@ -7,8 +7,11 @@
                     <i class="material-icons add-icon">add</i>
                 </div>
                 <div class="current-item">
-                    <div class="current-item__ring"></div>
-                    <div class="current-item__text">the First thing to do today</div>
+                    <div class="current-item__circle"></div>
+                    <div class="current-item__content">
+                        <div class="current-item__text">the First thing to do today</div>
+                        <div class="current-item__small-circle"></div>
+                    </div>
                 </div>
                 <div class="countdown">25:00</div>
                 <div class="todo-items">
@@ -34,10 +37,11 @@
             </div>
         </div>
         <div class="clock">
-            <div class="clock__center"></div>
+            <div class="clock__center--running"></div>
             <div class="clock__border"></div>
-            <i class="material-icons play-icon">play_circle_filled_white</i>
-            <i class="material-icons stop-icon">stop</i>
+<!--            <i class="material-icons play-icon">play_circle_filled_white</i>-->
+            <i class="material-icons play-icon--running">pause_circle_filled</i>
+            <i class="material-icons square-icon--running">stop</i>
         </div>
         <div class="main__right">
             <div class="navbar">
@@ -130,6 +134,21 @@
         border-radius: 50%;
     }
 
+    .clock__center--running {
+        width: 504px;
+        height: 504px;
+        background-color: #FFFFFF;
+
+        position: absolute;
+        z-index: 1;
+        top: calc(50% - 252px);
+        right: calc(50% - 252px);
+        box-sizing: border-box;
+        border-radius: 50%;
+
+        border: 4px solid #FF4384;
+    }
+
     .clock__border {
         width: 540px;
         height: 540px;
@@ -154,7 +173,7 @@
 
     .play-icon {
         font-size: 96px;
-        color: rgba(255, 255, 255, 1);
+        color: #FFFFFF;
 
         width: 96px;
         position: absolute;
@@ -163,9 +182,31 @@
         right: calc(50% - 48px);
     }
 
-    .stop-icon {
+    .play-icon--running {
+        font-size: 96px;
+        color: #FF4384;
+
+        width: 96px;
+        position: absolute;
+        z-index: 1;
+        top: calc(50% - 48px);
+        right: calc(50% - 48px);
+    }
+
+    .square-icon {
         font-size: 24px;
-        color: rgba(255, 255, 255, 1);
+        color: #FFFFFF;
+
+        width: 24px;
+        position: absolute;
+        z-index: 1;
+        top: calc(50% + 24px);
+        left: calc(50% + 48px);
+    }
+
+    .square-icon--running {
+        font-size: 24px;
+        color: #FF4384;
 
         width: 24px;
         position: absolute;
@@ -214,7 +255,7 @@
     }
 
     .pomodoro {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Futura', 'Roboto', sans-serif;
         font-weight: bold;
         font-size: 24px;
         color: #FFFFFF;
@@ -223,8 +264,8 @@
         transform-origin: 100% 0;
 
         position: absolute;
-        /*top: 752px;*/
-        /*right: 85px;*/
+        top: 752px;
+        right: 85px;
 
     }
 
@@ -239,6 +280,7 @@
 
         box-sizing: border-box;
         padding: 16px;
+        margin: 0px;
 
         display: flex;
         justify-content: space-between;
@@ -279,18 +321,34 @@
         font-weight: bold;
         font-size: 24px;
         color: #003164;
-        padding-left: 16px;
 
         text-transform: uppercase;
     }
 
-    .current-item__ring {
+    .current-item__circle {
         box-sizing: border-box;
         width: 48px;
         height: 48px;
         background-color: transparent;
         border: 2px solid #003164;
         border-radius: 50%;
+
+        margin-right: 16px;
+    }
+
+    .current-item__content {
+        height: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .current-item__small-circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 1px solid #FF4384;
+        align-self: end;
     }
 
     .todo-items {
