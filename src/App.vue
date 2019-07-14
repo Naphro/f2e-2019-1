@@ -1,57 +1,43 @@
-<template>
-    <div id="app" class="main">
-        <div class="main__left">
-            <div class="content">
-                <div class="mission__input">
-                    <i class="text--default">add a new mission…</i>
-                    <i class="material-icons add-icon">add</i>
-                </div>
-                <div class="current-item">
-                    <div class="current-item__circle"></div>
-                    <div class="current-item__content">
-                        <div class="current-item__text">the First thing to do today</div>
-                        <div class="current-item__small-circle"></div>
-                    </div>
-                </div>
-                <div class="countdown">25:00</div>
-                <div class="todo-items">
-                    <div class="todo-item">
-                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                        <div class="todo-item__text">the second thing to do today</div>
-                        <i class="material-icons todo-item__play-icon">play_circle_outline</i>
-                    </div>
-                    <div class="todo-item">
-                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                        <div class="todo-item__text">the third thing to do today</div>
-                        <i class="material-icons todo-item__play-icon">play_circle_outline</i>
-                    </div>
-                    <div class="todo-item">
-                        <i class="material-icons panorama_fish_eye-icon">panorama_fish_eye</i>
-                        <div class="todo-item__text">the forth thing to do today</div>
-                        <i class="material-icons todo-item__play-icon">play_circle_outline</i>
-                    </div>
-                    <div class="todo-item--more">
+<template lang="pug">
+    div#app.main
+        div.main__left
+            div.content
+                div.mission__input
+                    i.text--default add a new mission…
+                    i.material-icons.add-icon add
+                div.current-item
+                    div.current-item__circle
+                    div.current-item__content
+                        div.current-item__text the First thing to do today
+                        div.current-item__small-circle
+                div.countdown 25:00
+                div.todo-items
+                    div.todo-item
+                        i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                        div.todo-item__text the second thing to do today
+                        i.material-icons.todo-item__play-icon play_circle_outline
+                    div.todo-item
+                        i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                        div.todo-item__text the second thing to do today
+                        i.material-icons.todo-item__play-icon play_circle_outline
+                    div.todo-item
+                        i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                        div.todo-item__text the forth thing to do today
+                        i.material-icons.todo-item__play-icon play_circle_outline
+                    div.todo-item--more
                         MORE
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clock">
-            <div class="clock__center--running"></div>
-            <div class="clock__border"></div>
-<!--            <i class="material-icons play-icon">play_circle_filled_white</i>-->
-            <i class="material-icons play-icon--running">pause_circle_filled</i>
-            <i class="material-icons square-icon--running">stop</i>
-        </div>
-        <div class="main__right">
-            <div class="navbar">
-                <i class="material-icons list-icon">list</i>
-                <i class="material-icons assignment-icon">assessment</i>
-                <i class="material-icons library_music-icon">library_music</i>
-                <div class="pomodoro">POMODORO</div>
-            </div>
-        </div>
-    </div>
+        div.clock
+            div.clock__center--running
+            div.clock__border
+            //- i.material-icons.play-icon play_circle_filled_white
+            i.material-icons.play-icon--running pause_circle_filled
+            i.material-icons.square-icon--running stop
+        div.main__right
+            div.navbar
+                i.material-icons.list-icon list
+                i.material-icons.assignment-icon assessment
+                i.material-icons.library_music-icon library_music
+                div.pomodoro POMODORO
 </template>
 
 <script>
@@ -313,7 +299,7 @@
         left: 85px;
 
         display: flex;
-        align-items: start;
+        align-items: flex-start;
     }
 
     .current-item__text {
