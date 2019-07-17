@@ -1,8 +1,9 @@
 <template lang="pug">
     div#app.main
         div.main__content
-            div.mission__input
-                i.text--default add a new mission…
+            div.mission__add
+                input(placeholder='add a new mission…')
+                //i.text--default
                 i.material-icons.add-icon add
             div.current
                 div.current-item
@@ -11,7 +12,7 @@
                         div.current-item__text the First thing to do today
                         div.current-item__small-circle
                 div.countdown 25:00
-            ul.todo-list
+            ul.todo__list
                 li.todo-item
                     i.material-icons.panorama_fish_eye-icon panorama_fish_eye
                     div.todo-item__text the second thing to do today
@@ -32,7 +33,7 @@
                 i.material-icons.play-icon--running pause_circle_filled
                 i.material-icons.square-icon--running stop
         div.main__menu
-            div.navbar
+            div.menu
                 i.material-icons.list-icon list
                 i.material-icons.assignment-icon assessment
                 i.material-icons.library_music-icon library_music
@@ -53,61 +54,56 @@
     $background-color: #FFEDF7
     $secondary-color: #003164
 
-    %roboto-font
+    *
+        box-sizing: border-box
         font-family: 'Roboto', sans-serif
         font-weight: bold
-
-    *
-       box-sizing: border-box
+        text-transform: uppercase
 
     html
         height: 100%
+        overflow: hidden
 
     body
-        /*width: 100%*/
         height: 100%
         margin: 0
 
     .main
         height: 100%
-        max-width: 1280px
-        max-height: 800px
-        margin: 0 auto
+        /*max-width: 1280px*/
+        /*max-height: 800px*/
+        /*margin: 0 auto*/
         display: flex
         justify-content: flex-start
-        /*position: relative*/
         &__content
             width: 65%
             background-color: $background-color
-            /*position: relative*/
             padding: 48px 0 48px 85px
             display: flex
             flex-direction: column
             justify-content: space-between
+            align-items: flex-start
             flex-wrap: wrap
         &__menu
             width: 35%
-            height: 100%
             background-color: $secondary-color
-            position: relative
+            /*position: relative*/
             padding: 48px 85px 48px 0
 
-    /*.content*/
-    /*    width: calc(1280px * 0.65)*/
-    /*    height: 100%*/
-    /*    position: absolute*/
-    /*    right: 0*/
-
-    .navbar
-        width: calc(1280px * 0.35)
-        height: 100%
-        position: absolute
-        left: 0
-
+    .menu
+        /*width: calc(1280px * 0.35)*/
+        /*height: 100%*/
+        /*position: absolute*/
+        /*left: 0*/
+        /*margin-left: auto*/
 
     .clock
-        /*position: absolute*/
         position: relative
+        width: 540px
+        height: 540px
+        margin-top: auto
+        margin-bottom: auto
+        margin-left: auto
         &__center
             width: 506px
             height: 506px
@@ -129,8 +125,8 @@
                 border-radius: 50%
                 border: 4px solid $primary-color
         &__border
-            width: 540px
-            height: 540px
+            width: 100%
+            height: 100%
             position: absolute
             z-index: 1
             top: calc(50% - 270px)
@@ -216,47 +212,35 @@
         top: 752px
         right: 85px
 
-    .mission__input
+    .mission__add
         width: 445px
         height: 56px
         background-color: $white
         position: relative
-        /*top: 48px*/
-        /*left: 85px*/
         box-sizing: border-box
         padding: 16px
         margin: 0px
         display: flex
         justify-content: space-between
         align-items: center
-
-    .text--default
-        @extend %roboto-font
-        font-size: 16px
-        color: $primary-color
-        text-transform: uppercase
+        input
+            font-size: 16px
+            color: $primary-color
 
     .countdown
-        @extend %roboto-font
         font-size: 176px
         color: $primary-color
-        /*position: absolute*/
-        /*justify-self: center*/
 
     .current
         height: 33.33%
-        width: 454px;
-        /*justify-self: center*/
+        width: 454px
 
     .current-item
-        /*position: absolute*/
         display: flex
         align-items: flex-start
         &__text
-            @extend %roboto-font
             font-size: 24px
             color: $secondary-color
-            text-transform: uppercase
         &__circle
             box-sizing: border-box
             width: 48px
@@ -277,7 +261,7 @@
             border: 1px solid $primary-color
             align-self: end
 
-    .todo-list
+    .todo__list
         /*height: 33.33%*/
         /*position: absolute*/
         /*left: 85px*/
@@ -306,15 +290,12 @@
             width: 24px
             margin-left: auto
         &__text
-            @extend %roboto-font
             font-size: 16px
             color: $secondary-color
             padding-left: 4px
-            text-transform: uppercase
         &--more
             margin-top: 9px
             margin-left: auto
-            @extend %roboto-font
             font-size: 16px
             color: $primary-color
 
