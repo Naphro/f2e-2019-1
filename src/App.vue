@@ -1,37 +1,37 @@
 <template lang="pug">
     div#app.main
-        div.main__left
-            div.content
-                div.mission__input
-                    i.text--default add a new mission…
-                    i.material-icons.add-icon add
+        div.main__content
+            div.mission__input
+                i.text--default add a new mission…
+                i.material-icons.add-icon add
+            div.current
                 div.current-item
                     div.current-item__circle
                     div.current-item__content
                         div.current-item__text the First thing to do today
                         div.current-item__small-circle
                 div.countdown 25:00
-                div.todo-items
-                    div.todo-item
-                        i.material-icons.panorama_fish_eye-icon panorama_fish_eye
-                        div.todo-item__text the second thing to do today
-                        i.material-icons.todo-item__play-icon play_circle_outline
-                    div.todo-item
-                        i.material-icons.panorama_fish_eye-icon panorama_fish_eye
-                        div.todo-item__text the second thing to do today
-                        i.material-icons.todo-item__play-icon play_circle_outline
-                    div.todo-item
-                        i.material-icons.panorama_fish_eye-icon panorama_fish_eye
-                        div.todo-item__text the forth thing to do today
-                        i.material-icons.todo-item__play-icon play_circle_outline
-                    div.todo-item--more MORE
-        div.clock
-            div.clock__center--running
-            div.clock__border
-            //- i.material-icons.play-icon play_circle_filled_white
-            i.material-icons.play-icon--running pause_circle_filled
-            i.material-icons.square-icon--running stop
-        div.main__right
+            ul.todo-list
+                li.todo-item
+                    i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                    div.todo-item__text the second thing to do today
+                    i.material-icons.todo-item__play-icon play_circle_outline
+                li.todo-item
+                    i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                    div.todo-item__text the second thing to do today
+                    i.material-icons.todo-item__play-icon play_circle_outline
+                li.todo-item
+                    i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                    div.todo-item__text the forth thing to do today
+                    i.material-icons.todo-item__play-icon play_circle_outline
+                li.todo-item--more MORE
+            div.clock
+                div.clock__center--running
+                div.clock__border
+                //- i.material-icons.play-icon play_circle_filled_white
+                i.material-icons.play-icon--running pause_circle_filled
+                i.material-icons.square-icon--running stop
+        div.main__menu
             div.navbar
                 i.material-icons.list-icon list
                 i.material-icons.assignment-icon assessment
@@ -48,45 +48,55 @@
 
 <style lang="sass">
 
+    $white: #FFFFFF
     $primary-color: #FF4384
+    $background-color: #FFEDF7
     $secondary-color: #003164
 
-    %primary-font
+    %roboto-font
         font-family: 'Roboto', sans-serif
         font-weight: bold
 
+    *
+       box-sizing: border-box
+
     html
-        width: 1280px
-        height: 800px
+        height: 100%
 
     body
-        width: 100%
+        /*width: 100%*/
         height: 100%
         margin: 0
 
     .main
-        width: 100%
         height: 100%
+        max-width: 1280px
+        max-height: 800px
+        margin: 0 auto
         display: flex
         justify-content: flex-start
-        position: relative
-        overflow-x: hidden
-        &__left
+        /*position: relative*/
+        &__content
             width: 65%
-            height: 100%
-            background-color: #FFEDF7
-            position: relative
-        &__right
+            background-color: $background-color
+            /*position: relative*/
+            padding: 48px 0 48px 85px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            flex-wrap: wrap
+        &__menu
             width: 35%
             height: 100%
             background-color: $secondary-color
             position: relative
+            padding: 48px 85px 48px 0
 
-    .content
-        width: calc(1280px * 0.65)
-        height: 100%
-        position: absolute
-        right: 0
+    /*.content*/
+    /*    width: calc(1280px * 0.65)*/
+    /*    height: 100%*/
+    /*    position: absolute*/
+    /*    right: 0*/
 
     .navbar
         width: calc(1280px * 0.35)
@@ -96,23 +106,21 @@
 
 
     .clock
-        position: absolute
-        top: 50%
-        left: 65%
+        /*position: absolute*/
+        position: relative
         &__center
             width: 506px
             height: 506px
             background-color: $primary-color
             position: absolute
             z-index: 1
-            top: calc(50% - 253px)
-            right: calc(50% - 253px)
-            box-sizing: border-box
+            /*top: calc(50% - 253px)*/
+            /*right: calc(50% - 253px)*/
             border-radius: 50%
             &--running
                 width: 504px
                 height: 504px
-                background-color: #FFFFFF
+                background-color: $white
                 position: absolute
                 z-index: 1
                 top: calc(50% - 252px)
@@ -139,7 +147,7 @@
 
     .play-icon
         font-size: 96px
-        color: #FFFFFF
+        color: $white
         width: 96px
         position: absolute
         z-index: 1
@@ -156,7 +164,7 @@
 
     .square-icon
         font-size: 24px
-        color: #FFFFFF
+        color: $white
         width: 24px
         position: absolute
         z-index: 1
@@ -173,14 +181,14 @@
 
     .list-icon
         font-size: 36px
-        color: rgba(255, 255, 255, 1)
+        color: $white
         position: absolute
         top: 48px
         right: 85px
 
     .assignment-icon
         font-size: 36px
-        color: rgba(255, 255, 255, 1)
+        color: $white
         position: absolute
         top: 132px
         right: 85px
@@ -188,7 +196,7 @@
 
     .library_music-icon
         font-size: 36px
-        color: rgba(255, 255, 255, 1)
+        color: $white
         position: absolute
         top: 216px
         right: 85px
@@ -201,7 +209,7 @@
         font-family: 'Futura', 'Roboto', sans-serif
         font-weight: bold
         font-size: 24px
-        color: #FFFFFF
+        color: $white
         transform: rotate(90deg)
         transform-origin: 100% 0
         position: absolute
@@ -211,10 +219,10 @@
     .mission__input
         width: 445px
         height: 56px
-        background-color: #FFFFFF
+        background-color: $white
         position: relative
-        top: 48px
-        left: 85px
+        /*top: 48px*/
+        /*left: 85px*/
         box-sizing: border-box
         padding: 16px
         margin: 0px
@@ -223,27 +231,29 @@
         align-items: center
 
     .text--default
-        @extend %primary-font
+        @extend %roboto-font
         font-size: 16px
         color: $primary-color
         text-transform: uppercase
 
     .countdown
-        @extend %primary-font
+        @extend %roboto-font
         font-size: 176px
         color: $primary-color
-        position: absolute
-        top: calc(50% - 103px)
-        left: 80px
+        /*position: absolute*/
+        /*justify-self: center*/
+
+    .current
+        height: 33.33%
+        width: 454px;
+        /*justify-self: center*/
 
     .current-item
-        position: absolute
-        top: 249px
-        left: 85px
+        /*position: absolute*/
         display: flex
         align-items: flex-start
         &__text
-            @extend %primary-font
+            @extend %roboto-font
             font-size: 24px
             color: $secondary-color
             text-transform: uppercase
@@ -267,12 +277,18 @@
             border: 1px solid $primary-color
             align-self: end
 
-    .todo-items
-        position: absolute
-        left: 85px
-        top: 610px
+    .todo-list
+        /*height: 33.33%*/
+        /*position: absolute*/
+        /*left: 85px*/
+        /*top: 610px*/
         display: flex
         flex-direction: column
+        justify-content: flex-end
+        width: 445px
+        padding-left: 0
+        list-style: none
+        margin: 0
 
     .todo-item
         margin-top: 9px
@@ -290,7 +306,7 @@
             width: 24px
             margin-left: auto
         &__text
-            @extend %primary-font
+            @extend %roboto-font
             font-size: 16px
             color: $secondary-color
             padding-left: 4px
@@ -298,7 +314,7 @@
         &--more
             margin-top: 9px
             margin-left: auto
-            @extend %primary-font
+            @extend %roboto-font
             font-size: 16px
             color: $primary-color
 
