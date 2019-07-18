@@ -1,6 +1,6 @@
 <template lang="pug">
-    div#app.main
-        div.main__content
+    div#app
+        div.main
             div.mission__add
                 input(placeholder='add a new mission…')
                 //i.text--default
@@ -27,17 +27,20 @@
                     i.material-icons.todo-item__play-icon play_circle_outline
                 li.todo-item--more MORE
             div.clock
-                div.clock__center--running
                 div.clock__border
-                //- i.material-icons.play-icon play_circle_filled_white
-                i.material-icons.play-icon--running pause_circle_filled
-                i.material-icons.square-icon--running stop
-        div.main__menu
-            div.menu
+                    //div.clock__center--running
+                        //- i.material-icons.play-icon play_circle_filled_white
+                        i.material-icons.play-icon--running pause_circle_filled
+                        i.material-icons.square-icon--running stop
+        nav.navbar
+            a
                 i.material-icons.list-icon list
+            a
                 i.material-icons.assignment-icon assessment
+            a
                 i.material-icons.library_music-icon library_music
-                div.pomodoro POMODORO
+            div
+                span POMODORO
 </template>
 
 <script>
@@ -54,11 +57,19 @@
     $background-color: #FFEDF7
     $secondary-color: #003164
 
+    %nav-icon
+        font-size: 36px
+        color: $white
+
     *
         box-sizing: border-box
         font-family: 'Roboto', sans-serif
         font-weight: bold
         text-transform: uppercase
+
+    ul
+        padding: 0
+        list-style: none
 
     html
         height: 100%
@@ -68,42 +79,57 @@
         height: 100%
         margin: 0
 
-    .main
+    #app
         height: 100%
-        /*max-width: 1280px*/
-        /*max-height: 800px*/
-        /*margin: 0 auto*/
         display: flex
-        justify-content: flex-start
-        &__content
-            width: 65%
-            background-color: $background-color
-            padding: 48px 0 48px 85px
-            display: flex
-            flex-direction: column
-            justify-content: space-between
-            align-items: flex-start
-            flex-wrap: wrap
-        &__menu
-            width: 35%
-            background-color: $secondary-color
-            /*position: relative*/
-            padding: 48px 85px 48px 0
 
-    .menu
-        /*width: calc(1280px * 0.35)*/
-        /*height: 100%*/
-        /*position: absolute*/
-        /*left: 0*/
-        /*margin-left: auto*/
+    .main
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        flex-wrap: wrap
+        background-color: $background-color
+        padding: 48px 85px
+
+    .navbar
+        position: fixed
+        right: 0px
+        width: 35%
+        height: 100%
+        background-color: $secondary-color
+        padding: 48px 85px
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        z-index: 1
+        a
+            margin-bottom: 48px
+            i
+                @extend %nav-icon
+        div
+            margin-top: auto
+            transform: translateX(-36px)
+            span
+                display: block
+                font-family: 'Futura', 'Roboto', sans-serif
+                font-size: 24px
+                color: $white
+                transform: rotate(90deg)
+                transform-origin: right bottom
+                height: 36px
 
     .clock
-        position: relative
-        width: 540px
-        height: 540px
-        margin-top: auto
-        margin-bottom: auto
-        margin-left: auto
+        display: flex
+        min-width: 540px
+        min-height: 540px
+        /*margin-top: auto*/
+        /*margin-bottom: auto*/
+        /*margin-right: calc(35vw - 270px - 85px)*/
+        /*margin-left: auto*/
+        margin: auto calc(35vw - 270px - 85px) auto auto
+        z-index: 2
         &__center
             width: 506px
             height: 506px
@@ -127,11 +153,11 @@
         &__border
             width: 100%
             height: 100%
-            position: absolute
-            z-index: 1
-            top: calc(50% - 270px)
-            right: calc(50% - 270px)
-            box-sizing: border-box
+            margin: auto
+            /*position: absolute*/
+            z-index: 2
+            /*top: calc(50% - 270px)*/
+            /*right: calc(50% - 270px)*/
             border-radius: 50%
             border: 4px solid $primary-color
 
@@ -175,14 +201,15 @@
             top: calc(50% + 24px)
             left: calc(50% + 48px)
 
-    .list-icon
+
+    //.list-icon
         font-size: 36px
         color: $white
         position: absolute
         top: 48px
         right: 85px
 
-    .assignment-icon
+    //.assignment-icon
         font-size: 36px
         color: $white
         position: absolute
@@ -190,27 +217,17 @@
         right: 85px
 
 
-    .library_music-icon
+    //.library_music-icon
         font-size: 36px
         color: $white
         position: absolute
         top: 216px
         right: 85px
 
+
     .panorama_fish_eye-icon
         font-size: 24px
         color: $secondary-color
-
-    .pomodoro
-        font-family: 'Futura', 'Roboto', sans-serif
-        font-weight: bold
-        font-size: 24px
-        color: $white
-        transform: rotate(90deg)
-        transform-origin: 100% 0
-        position: absolute
-        top: 752px
-        right: 85px
 
     .mission__add
         width: 445px
@@ -233,6 +250,7 @@
 
     .current
         height: 33.33%
+        min-height: 240px
         width: 454px
 
     .current-item
@@ -270,7 +288,7 @@
         flex-direction: column
         justify-content: flex-end
         width: 445px
-        padding-left: 0
+        /*padding-left: 0*/
         list-style: none
         margin: 0
 
