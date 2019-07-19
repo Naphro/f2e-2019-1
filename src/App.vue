@@ -1,7 +1,7 @@
 <template lang="pug">
     div#app
         div.main
-            div.mission__add
+            div.todo-add
                 input(placeholder='add a new mission…')
                 //i.text--default
                 i.material-icons.add-icon add
@@ -28,10 +28,10 @@
                 li.todo-item--more MORE
             div.clock
                 div.clock__border
-                    //div.clock__center--running
+                    div.clock__center
                         //- i.material-icons.play-icon play_circle_filled_white
-                        i.material-icons.play-icon--running pause_circle_filled
-                        i.material-icons.square-icon--running stop
+                        //i.material-icons.play-icon--running pause_circle_filled
+                        //i.material-icons.square-icon--running stop
         nav.navbar
             a
                 i.material-icons.list-icon list
@@ -134,16 +134,13 @@
             width: 506px
             height: 506px
             background-color: $primary-color
-            position: absolute
             z-index: 1
-            /*top: calc(50% - 253px)*/
-            /*right: calc(50% - 253px)*/
             border-radius: 50%
+            margin: auto
             &--running
                 width: 504px
                 height: 504px
                 background-color: $white
-                position: absolute
                 z-index: 1
                 top: calc(50% - 252px)
                 right: calc(50% - 252px)
@@ -154,12 +151,10 @@
             width: 100%
             height: 100%
             margin: auto
-            /*position: absolute*/
             z-index: 2
-            /*top: calc(50% - 270px)*/
-            /*right: calc(50% - 270px)*/
             border-radius: 50%
             border: 4px solid $primary-color
+            line-height: 532px
 
     .add-icon
         font-size: 24px
@@ -229,7 +224,7 @@
         font-size: 24px
         color: $secondary-color
 
-    .mission__add
+    .todo-add
         width: 445px
         height: 56px
         background-color: $white
@@ -241,8 +236,14 @@
         justify-content: space-between
         align-items: center
         input
+            width: calc(100% - 24px - 16px)
             font-size: 16px
-            color: $primary-color
+            color: $secondary-color
+            border: none
+            text-overflow: ellipsis
+            &::placeholder
+                color: $primary-color
+                font-style: italic
 
     .countdown
         font-size: 176px
