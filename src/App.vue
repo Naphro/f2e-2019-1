@@ -97,14 +97,12 @@
     .todo__add-icon
         font-size: 24px
         color: $primary-color
-        position: absolute
         right: 5px
 
     .todo__add
         width: 270px
         height: 30px
         background-color: $white
-        position: relative
         box-sizing: border-box
         margin: 0 20px 20px 20px
         padding: 5px
@@ -224,7 +222,6 @@
         width: 504px
         height: 504px
         background-color: $white
-        z-index: 1
         border: 4px solid $primary-color
 
 
