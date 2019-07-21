@@ -75,6 +75,7 @@
 
     html
         height: 100%
+        overflow-x: hidden
 
     body
         height: 100%
@@ -92,7 +93,6 @@
         flex-direction: column
         align-items: center
         background-color: $background-color
-        overflow-y: auto
 
     .todo__add-icon
         font-size: 24px
