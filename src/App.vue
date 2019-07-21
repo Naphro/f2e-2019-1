@@ -15,7 +15,7 @@
                     img.doing__circle(src='./assets/svg/baseline-check_circle_outline-24px.svg')
                     div.doing__text
                         div the First thing to do today
-                        div
+                        div.doing__status
                             span.doing__small-circle
                             span.doing__small-circle
                 div.doing__countdown 25:00
@@ -125,20 +125,21 @@
         margin: 20px
 
     .doing__content
-        /*height: 48px*/
         display: flex
         align-items: flex-start
-        /*flex-direction: column*/
         img
-            font-size: 36px
-            margin: 2px 8px 2px 0
+            width: 36px
+            height: 36px
+            margin-right: 8px
 
     .doing__text
         font-size: 20px
         color: $secondary-color
         display: flex
         flex-direction: column
-        /*align-items: center*/
+
+    .doing__status
+        height: 24px
 
     .doing__small-circle
         width: 12px
@@ -351,5 +352,5 @@
 
         .todo__item
             width: 445px
-    
+
 </style>
