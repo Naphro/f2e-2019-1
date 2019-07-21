@@ -16,8 +16,8 @@
                     div.doing__text
                         div the First thing to do today
                         div.doing__status
-                            span.doing__small-circle
-                            span.doing__small-circle
+                            div.doing__small-circle
+                            div.doing__small-circle
                 div.doing__countdown 25:00
             div.clock
                 div.clock__border
@@ -127,10 +127,11 @@
     .doing__content
         display: flex
         align-items: flex-start
-        img
-            width: 36px
-            height: 36px
-            margin-right: 8px
+
+    .doing__circle
+        width: 36px
+        height: 36px
+        margin-right: 8px
 
     .doing__text
         font-size: 20px
@@ -139,7 +140,8 @@
         flex-direction: column
 
     .doing__status
-        height: 24px
+        display: flex
+        padding-top: 6px
 
     .doing__small-circle
         width: 12px
@@ -314,6 +316,9 @@
             height: 33.33%
             min-height: 240px
             margin: 0
+
+        .doing
+            padding-top: 8px
 
         .doing__circle
             width: 48px
