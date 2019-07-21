@@ -2,45 +2,45 @@
     div#app
         nav.navbar
             a
-                i.material-icons.list-icon list
+                img(src='./assets/svg/baseline-list-24px.svg')
             a
-                i.material-icons.assignment-icon assessment
+                img(src='./assets/svg/baseline-assessment-24px.svg')
             a
-                i.material-icons.library_music-icon library_music
+                img(src='./assets/svg/baseline-library_music-24px.svg')
             div
                 span POMODORO
         div.main
             div.doing
                 div.doing__content
+                    img.doing__circle(src='./assets/svg/baseline-check_circle_outline-24px.svg')
                     div.doing__text
-                        i.material-icons
                         div the First thing to do today
-                    div.doing__status
-                        span.doing__small-circle
-                        span.doing__small-circle
+                        div
+                            span.doing__small-circle
+                            span.doing__small-circle
                 div.doing__countdown 25:00
             div.clock
                 div.clock__border
                     div.clock__center
-                        i.material-icons.clock__btn
-                        //i.material-icons.play-icon pause_circle_filled
-                        i.material-icons.clock__square
+                        img.clock__btn(src='./assets/svg/baseline-play_circle_filled_white-48px.svg')
+                        //img(src='./assets/svg/baseline-pause_circle_filled-24px.svg')
+                        img.clock__square(src='./assets/svg/baseline-stop-24px.svg')
             div.todo__add
                 input(placeholder='add a new mission…')
-                i.material-icons.todo__add-icon add
+                img.todo__add-icon(src='./assets/svg/baseline-add-24px.svg')
             ul.todo__list
                 li.todo__item
-                    i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                    img(src='./assets/svg/baseline-panorama_fish_eye-24px.svg')
                     div.todo__item__text the second thing to do today
-                    i.material-icons.todo__item__play-icon play_circle_outline
+                    img(src='./assets/svg/baseline-play_circle_outline-24px.svg')
                 li.todo__item
-                    i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                    img(src='./assets/svg/baseline-panorama_fish_eye-24px.svg')
                     div.todo__item__text the second thing to do today
-                    i.material-icons.todo__item__play-icon play_circle_outline
+                    img(src='./assets/svg/baseline-play_circle_outline-24px.svg')
                 li.todo__item
-                    i.material-icons.panorama_fish_eye-icon panorama_fish_eye
+                    img(src='./assets/svg/baseline-panorama_fish_eye-24px.svg')
                     div.todo__item__text the forth thing to do today
-                    i.material-icons.todo__item__play-icon play_circle_outline
+                    img(src='./assets/svg/baseline-play_circle_outline-24px.svg')
                 li.todo__item--more MORE
 </template>
 
@@ -60,7 +60,7 @@
     $nav-height: 60px
 
     %nav-icon
-        font-size: 24px
+        width: 24px
         color: $white
 
     *
@@ -75,7 +75,7 @@
 
     html
         height: 100%
-        overflow-x: hidden
+        overflow: hidden
 
     body
         height: 100%
@@ -88,15 +88,14 @@
     .main
         margin-top: $nav-height
         width: 100%
-        height: 100%
         display: flex
         flex-direction: column
         align-items: center
         background-color: $background-color
+        overflow-y: auto
 
     .todo__add-icon
         font-size: 24px
-        color: $primary-color
         right: 5px
 
     .todo__add
@@ -128,22 +127,18 @@
     .doing__content
         /*height: 48px*/
         display: flex
-        flex-direction: column
+        align-items: flex-start
+        /*flex-direction: column*/
+        img
+            font-size: 36px
+            margin: 2px 8px 2px 0
 
     .doing__text
         font-size: 20px
         color: $secondary-color
         display: flex
-        align-items: center
-        i
-            font-size: 36px
-            margin: 2px 8px 2px 0
-            &::before
-                content: 'check_circle_outline'
-
-    .doing__status
-        margin-left: 44px
-        /*height: 12px*/
+        flex-direction: column
+        /*align-items: center*/
 
     .doing__small-circle
         width: 12px
@@ -227,27 +222,20 @@
 
     .clock__btn
         display: block
-        font-size: 96px
         color: $white
         position: relative
         width: 96px
         height: 96px
         margin-left: calc(50% - 48px)
-        &::before
-            content: 'play_circle_filled_white'
 
     .clock__btn--running
         color: $primary-color
-        &::before
-            content: 'pause_circle_filled'
 
     .clock__square
         font-size: 24px
         color: $white
         width: 24px
         transform: translateY(36px)
-        &::before
-            content: 'stop'
 
     .clock__square--running
         color: $primary-color
@@ -263,7 +251,7 @@
         padding: 15px
         a
             margin-right: 15px
-            i
+            img
                 @extend %nav-icon
         div
             margin-left: auto
@@ -309,8 +297,9 @@
             a
                 margin-right: 0px
                 margin-bottom: 48px
-                i
-                    font-size: 36px
+                img
+                    width: 36px
+                    height: 36px
             div
                 margin-left: 0
                 margin-top: auto
@@ -362,7 +351,5 @@
 
         .todo__item
             width: 445px
-
-
-
+    
 </style>
