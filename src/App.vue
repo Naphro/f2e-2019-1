@@ -18,7 +18,7 @@
                         div.doing__status
                             div.doing__small-circle
                             div.doing__small-circle
-                div.doing__countdown 25:00
+                div.doing__countdown 25:02
             div.clock
                 div.clock__border
                     div.clock__center
@@ -152,6 +152,7 @@
         margin-right: 8px
 
     .doing__countdown
+        display: flex
         font-size: 100px
         color: $primary-color
         margin: auto
@@ -172,22 +173,26 @@
         align-items: center
         width: 270px
         border-bottom: 1px solid rgba(0, 49, 100, 0.2)
-        &:nth-of-type(1)
-            margin-top: 0
-        &__play-icon
-            font-size: 24px
-            color: $secondary-color
-            width: 24px
-            margin-left: auto
-        &__text
-            font-size: 16px
-            color: $secondary-color
-            padding-left: 4px
-        &--more
-            margin-top: 9px
-            margin-left: auto
-            font-size: 16px
-            color: $primary-color
+
+    .todo__item:nth-of-type(1)
+        margin-top: 0
+
+    .todo__item__play-icon
+        font-size: 24px
+        color: $secondary-color
+        width: 24px
+        margin-left: auto
+
+    .todo__item__text
+        font-size: 16px
+        color: $secondary-color
+        padding-left: 4px
+
+    .todo__item--more
+        margin-top: 9px
+        margin-left: auto
+        font-size: 16px
+        color: $primary-color
 
     .panorama_fish_eye-icon
         font-size: 24px
