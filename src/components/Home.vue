@@ -1,24 +1,26 @@
 <template>
-  <div class="container" :class="restClass">
-    <div class="form">
-      <div class="task-new">
-        <input
-          type="text"
-          class="task-new__input"
-          placeholder="add a new mission…"
-          :class="restClass"
-          v-model="newTask"
-        />
-        <input type="button" class="task-new__button" @click="addNewTask" />
+  <div class="bg" :class="restClass">
+    <div class="container">
+      <div class="form">
+        <div class="task-new">
+          <input
+            type="text"
+            class="task-new__input"
+            placeholder="add a new mission…"
+            :class="restClass"
+            v-model="newTask"
+          />
+          <input type="button" class="task-new__button" @click="addNewTask" />
+        </div>
+        <current-task v-if="currentTask" :task="currentTask" :count="count" />
+        <div class="list-items">
+          <task-item :key="task" v-for="task in tasks" :title="task" />
+          <p class="more" :class="restClass">more</p>
+        </div>
       </div>
-      <current-task v-if="currentTask" :task="currentTask" :count="count" />
-      <div class="list-items">
-        <task-item :key="task" v-for="task in tasks" :title="task" />
-        <p class="more" :class="restClass">more</p>
-      </div>
+      <clock :task="currentTask" :onChangeStatus="onChangeStatus"></clock>
+      <sidebar></sidebar>
     </div>
-    <clock :task="currentTask" :onChangeStatus="onChangeStatus"></clock>
-    <sidebar></sidebar>
   </div>
 </template>
 
@@ -156,12 +158,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
+.bg {
   height: 100%;
   background-color: #ffedf7;
   overflow: auto;
-  position: relative;
-  padding: 48px 85px;
+  /*position: relative;*/
+  /*padding: 48px 85px;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &.rest {
     background-color: #e5f3ff;
   }
@@ -170,11 +175,18 @@ export default {
     content: '';
     background-color: #003164;
     height: 100%;
-    width: 35%;
+    width: calc((100% - 1280px) / 2 + 450px);
     position: absolute;
     right: 0;
     top: 0;
   }
+}
+
+.container {
+  width: 1280px;
+  height: 800px;
+  padding: 48px 85px;
+  position: relative;
 }
 
 .form {
