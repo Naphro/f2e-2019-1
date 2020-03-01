@@ -1,10 +1,5 @@
-const Foo = {
-  template: '<div>Foo</div>',
-}
+import Home from './components/Home'
 
-const routes = [
-  { path: '/foo', component: Foo },
-  // { path: '/bar', component: Bar },
-]
+const routes = [{ path: '/home', component: Home }]
 
 export default routes

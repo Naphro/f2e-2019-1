@@ -1,19 +1,20 @@
 <template>
-  <div class="list-item">
-    <div class="list-item__check"></div>
-    <span class="list-item__text">the third thing to do today</span>
-    <a href="#" class="list-item__btn"></a>
+  <div class="task-item">
+    <div class="task-item__check"></div>
+    <span class="task-item__text">{{ title }}</span>
+    <a href="#" class="task-item__btn"></a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ListItem',
+  name: 'TaskItem',
+  props: ['title'],
 }
 </script>
 
 <style scoped>
-.list-item {
+.task-item {
   width: 100%;
   height: 33px;
   border-bottom: 1px solid rgba(0, 49, 100, 0.2);
@@ -21,7 +22,7 @@ export default {
   padding-bottom: 8px;
 }
 
-.list-item__btn {
+.task-item__btn {
   display: block;
   width: 24px;
   height: 24px;
@@ -30,9 +31,10 @@ export default {
   background-size: contain;
   float: right;
   vertical-align: middle;
+  cursor: default;
 }
 
-.list-item__text {
+.task-item__text {
   text-align: left;
   font: Bold 16px/24px Roboto;
   letter-spacing: 0;
@@ -41,7 +43,7 @@ export default {
   vertical-align: top;
 }
 
-.list-item__check {
+.task-item__check {
   display: inline-block;
   width: 24px;
   height: 24px;
