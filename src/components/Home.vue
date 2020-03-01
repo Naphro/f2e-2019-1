@@ -13,7 +13,7 @@
       </div>
       <current-task v-if="currentTask" :task="currentTask" :count="count" />
       <div class="list-items">
-        <task-item v-for="task in tasks" :title="task" />
+        <task-item :key="task" v-for="task in tasks" :title="task" />
         <p class="more" :class="restClass">more</p>
       </div>
     </div>
@@ -147,6 +147,7 @@ export default {
           break
         }
         default: {
+          break
         }
       }
     },
