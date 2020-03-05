@@ -82,7 +82,7 @@ export default {
     border-radius: 50%;
     position: absolute;
     z-index: 1;
-    right: calc(35% - 270px);
+    right: calc(35% - 268px);
     top: calc(50% - 270px);
     overflow: hidden;
     border-width: 4px;

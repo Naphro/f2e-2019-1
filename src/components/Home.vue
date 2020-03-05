@@ -159,10 +159,11 @@ export default {
 
 <style scoped lang="scss">
 .bg {
+  min-width: 1280px;
   height: 100%;
   background-color: #ffedf7;
   overflow: auto;
-  /*position: relative;*/
+  position: relative;
   /*padding: 48px 85px;*/
   display: flex;
   justify-content: center;
@@ -176,6 +177,7 @@ export default {
     background-color: #003164;
     height: 100%;
     width: calc((100% - 1280px) / 2 + 450px);
+    min-width: 450px;
     position: absolute;
     right: 0;
     top: 0;
